@@ -22,7 +22,7 @@ const App = () => {
     const newIndex = currentIndex - 1;
     setCurrentIndex(newIndex);
     setrightarrow(true);
-    trackRef.current.scrollLeft -= 500; // kitna slide karna hai
+    trackRef.current.scrollLeft -= 250; // kitna slide karna hai
 
     if(newIndex == 0)
     {
@@ -34,7 +34,7 @@ const App = () => {
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
     setleftarrow(true);
-    trackRef.current.scrollLeft += 500;
+    trackRef.current.scrollLeft += 250;
 
     if(newIndex == lastIndex)
     {
