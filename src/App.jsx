@@ -13,15 +13,33 @@ import Our_Pic from "./assets/pics/Our_Pic.jpg"
 const App = () => {
 
 
-
+  const [leftarrow, setleftarrow]=useState(false);
+  const [rightarrow, setrightarrow]= useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0)
   const trackRef = useRef(null);
 
   const scrollLeft = () => {
-    trackRef.current.scrollLeft -= 300; // kitna slide karna hai
+    const newIndex = currentIndex - 1;
+    setCurrentIndex(newIndex);
+    setrightarrow(true);
+    trackRef.current.scrollLeft -= 500; // kitna slide karna hai
+
+    if(newIndex == 0)
+    {
+      setleftarrow(false);
+    }
   };
 
   const scrollRight = () => {
-    trackRef.current.scrollLeft += 300;
+    const newIndex = currentIndex + 1;
+    setCurrentIndex(newIndex);
+    setleftarrow(true);
+    trackRef.current.scrollLeft += 500;
+
+    if(newIndex == lastIndex)
+    {
+      setrightarrow(false);
+    }
   };
 
 
@@ -165,9 +183,11 @@ const App = () => {
         <h1> Memories </h1>
 
       {/* Left Arrow */}
+
+      {leftarrow &&
       <button className="arrow left" onClick={scrollLeft}>
         <img src="https://cdn-icons-png.freepik.com/512/271/271220.png" alt="" height={50} />
-      </button>
+      </button> }
 
       {/* Track */}
       <div className="carousel-track" ref={trackRef}>
@@ -180,9 +200,9 @@ const App = () => {
       </div>
 
       {/* Right Arrow */}
-      <button className="arrow right" onClick={scrollRight}>
+      {rightarrow && <button className="arrow right" onClick={scrollRight}>
         <img src="https://cdn-icons-png.flaticon.com/512/32/32213.png" alt="" height={50} />
-      </button>
+      </button> }
     </div>
     </div>
 

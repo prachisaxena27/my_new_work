@@ -226,6 +226,10 @@ text-align: center;
   border-radius: 10px;
 }
 
+.carousel-track img:hover{
+  transform: scale(1.1);
+}
+
 .arrow {
   position: absolute;
   top: 50%;
@@ -379,4 +383,17 @@ text-align: center;
   outline: hidden;
   /* background: transparent; */
   border-radius: 60px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%{
+    transform: translateY(-10px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+  
 }
