@@ -153,6 +153,7 @@ text-align: center;
   /* background-color: #ffeeee; */
   /* background: linear-gradient(to right, #e0c3fc, #8ec5fc); */
   min-height: 50vh;
+  padding-bottom: 40px;
 }
 
 .story_con span{
@@ -161,13 +162,16 @@ text-align: center;
   /* text-align: center; */
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .story_con p{
   max-width: 80%;
   text-align: center;
+  /* padding-bottom: 10px; */
   /* display: flex;
   justify-content: center;
   align-items: center; */
