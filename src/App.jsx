@@ -148,7 +148,17 @@ const App = () => {
             <section id='story'>
               <div className='story_con'>
                 <span> <img src="" alt="Our Pic" height={400} width={400} /> </span>
-                <span> 2</span>
+                <span> 
+                  <p> Amidst all the chaos and hustle, my heart found its forever 💕
+
+                      Before we fell in love, we fell into endless brainstorming sessions, case studies, and problem-solving marathons. Somewhere between product roadmaps and late-night debates, we discovered the best idea we’d ever co-create — US❣️
+
+                      We are getting married on December 2nd, 2025!
+                      So block your calendars and get ready for a day full of love, laughter, and dance floors on fire. 💃🕺
+
+
+#AAstreaming_forever </p>
+                </span>
               </div>
 
             </section>
