@@ -13,6 +13,52 @@ h1,h2,h3{
   
 }
 
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.petal, .heart{
+  position: fixed;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  animation: fall linear forwards;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.petal{
+  background-image: url("https://png.pngtree.com/png-vector/20250205/ourmid/pngtree-red-rose-petals-aesthetic-romantic-border-png-image_15387976.png");
+  mix-blend-mode: multiply;
+  outline: none;
+  border: none;
+  outline-color: none;
+}
+
+.heart{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtyMl7UJeuVEiAGN4jqlyN6Jy_bL5yPOrTuQ&s");
+  mix-blend-mode: multiply;
+  outline-color: none;
+  outline: none;
+  border: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
 /* .music1{
   position: absolute;
   background-color: rgb(0,0,0,0.5);
@@ -52,50 +98,85 @@ h1,h2,h3{
   padding: 5px;
 }
 
+.linebreak{
+  width: 100%;
+  height: 2vh;
+  padding-bottom: 35px;
+  /* border-bottom: 2px solid gold; */
+  /* height: 2px; */
+  /* background-color: goldenrod; */
+  animation: glowy 1s ease-in-out infinite alternate;
+  box-shadow: 0 5px  0 #00aaff, 0 10px  0 #00aaff, 0 15px  0 #00aaff, 0 20px  0 #00aaff;
+  /* opacity: 0.7; */
+}
+
+@keyframes glowy {
+
+  0% {
+    /* opacity: 10; */
+    box-shadow: 0  2px 0 gold, 0 2px 0 goldenrod, 0 2px 0 gold;
+  }
+
+  100%{
+     box-shadow: 0 5px 0 gold, 0 5px 0 gold, 0 5px 0 gold;
+  }
+  
+}
+
 
 
 .navbar{
-  width: 100%;
+  width: 50vw;
   height: 5vh;
   /* background-color: #d0ae74; */
   align-items: center;
-  justify-content: center;
-  display: flex;
+  justify-content: center; 
+  display: inline-flex;
   flex-direction: row;
   gap: 30px;
   flex-wrap: wrap;
-  margin-top: -32px;
+  /* border: 1px solid black; */
+  padding: 0;
+  margin: 0;
   /* background: linear-gradient(to right, #fdfbfb, #ebedee); */
 }
 
 
 
-.hshtg{
+.hsthg{
   font-family: fantasy;
-  margin-left: 40px;
-  display: inline-flex;
+  /* width: 5vw; */
+  height: 5vh;
+  /* margin-left: 40px; */
+  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   flex-wrap: wrap;
+  gap: 150px;
+  width: 100%;
+  border: 1px solid black;
+
 }
 
-.hshtg p{
-  display: inline-flex;
-  margin-left: 50px;
-  
+.hsthg p{
+  width: 15vw;
+  height: 5vh;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .navbar a{
+  display: flex;
   color: Black;
   font-family: fantasy;
   color-scheme: darkgray;
-  display: inline-flex;
 }
 
 html{
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
  
 }
 
@@ -106,13 +187,15 @@ body, p{
 
 .hero_con{
   width:  100%;
-  min-height: 150vh;
+  min-height: 166vh;
   display: flex;
   align-items: center;
-
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 40px;
+  
+margin-top: 40px;
+  /* padding-top: 40px; */
+  border: 1px solid black;
   /* justify-content: center;
   align-items: center; */
   /* flex-wrap: wrap; */
@@ -121,7 +204,7 @@ body, p{
 }
 
  .hero_con h1{
-  padding-bottom: 10px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
@@ -131,15 +214,18 @@ text-align: center;
 } 
 
 .hero_img{
-  z-index: 100;
+  /* z-index: 100; */
   width: 100%;
-  height: 400px;
+  /* height: 50vh; */
  
 }
 
 .hero_img img{
+  z-index: 100;
   width: 100%;
   height: 150vh;
+  padding-bottom: 40px;
+
 }
 
 .story_con{
@@ -149,11 +235,22 @@ text-align: center;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
   /* border: 1px solid black; */
   /* background-color: #ffeeee; */
   /* background: linear-gradient(to right, #e0c3fc, #8ec5fc); */
   min-height: 50vh;
   padding-bottom: 40px;
+  border: 1px solid black;
+  margin-top: 40px;
+}
+
+.story_con h1{
+  /* padding-bottom: 40px; */
+  text-align: center;
+  
+  
+
 }
 
 .story_con span{
@@ -161,7 +258,7 @@ text-align: center;
   /* text-align: center; */
   /* text-align: center; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   gap: 10px;
   align-items: center;
@@ -177,6 +274,15 @@ text-align: center;
   align-items: center; */
 }
 
+.story_con span img{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  z-index: 200;
+  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+}
+
 .events_con{
   width: 100%;
   min-height: 50vh;
@@ -187,29 +293,34 @@ text-align: center;
   flex-wrap: wrap;
   /* background-color: #ffeeee; */
   /* background: linear-gradient(to right, #d7f593, #a2e4ab); */
-  padding-bottom: 50px;
+  padding-bottom: 40px;
+  border: 1px solid black;
+  margin-top: 40px;
 
+}
+
+.events_con h1{
+  padding-bottom: 40px;
 }
 
 .events_gal{
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   gap: 15px;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding-bottom: 50px;
 
 }
 
 .gallery1_con{
   width: 100%;
-  
+  margin-top: 40px;
   min-height: 50vh;
   
-  padding-bottom: 50px;
-
+  padding-bottom: 40px;
+  border: 1px solid red;
   
 /* background-color: #ffeeee; */
 /* background: linear-gradient(to right,  #e9ecef, #8cbff2); */
@@ -224,6 +335,10 @@ text-align: center;
   overflow: hidden; /* scrollbar gayab */
   /* background-color: #ffeeee; */
   /* background: linear-gradient(to right, #f8f9fa, #e9ecef); */
+}
+
+.carousel h1{
+  padding-bottom: 40px;
 }
 
 .carousel-track img{
@@ -292,12 +407,19 @@ text-align: center;
   text-align: center;
 }
 
+.rsvp_con h1{
+  padding-bottom: 40px;
+}
+
+.rsvp_con p{
+  padding-bottom: 40px;
+}
+
 .rsvp_span{
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
   width: 25%;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .rsvp_span input{
@@ -314,7 +436,7 @@ text-align: center;
   /* border: 1px solid goldenrod; */
   /* outline: 1px solid goldenrod; */
   width: 30%;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
   padding-top: 10px;
   display: inline-flex;
   justify-content: center;
@@ -338,6 +460,15 @@ text-align: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.rsvp_span textarea{
+  border: 1px solid goldenrod;
+  outline: 1px solid goldenrod;
+}
+
+.rsvp_span textarea::placeholder{
+  text-indent: 2px;
 }
 
 .rsvp_btn{

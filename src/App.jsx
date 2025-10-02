@@ -1,4 +1,4 @@
-import { React, useRef, useState } from 'react'
+import { React, useEffect, useRef, useState } from 'react'
 import mySong from "./assets/audio/instrumental.mp3"
 import musicIcon from "./assets/pics/music.png"
 import Haldi from "./assets/pics/Haldi.jpeg"
@@ -12,7 +12,26 @@ import Our_Pic from "./assets/pics/Our_Pic.jpg"
 
 const App = () => {
 
+  useEffect(()=>{
+    const createFalling = () =>{
+      const element = document.createElement("div");
 
+      const isHeart = Math.random() > 0.5;
+      element.classList.add(isHeart ? "heart" : "petal");
+
+      element.style.left = Math.random() * 100 + "vw";
+      element.style.animationDuration = 3 + Math.random() * 2 + "s";
+
+      document.body.appendChild(element);
+
+      setTimeout(()=> {
+        element.remove();
+      }, 10000);
+    };
+
+    const interval = setInterval(createFalling, 100);
+    setTimeout(()=> clearInterval(interval), 20000);
+  },[]);
   const [leftarrow, setleftarrow]=useState(false);
   const [rightarrow, setrightarrow]= useState(true);
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -22,7 +41,7 @@ const App = () => {
     const newIndex = currentIndex - 1;
     setCurrentIndex(newIndex);
     setrightarrow(true);
-    trackRef.current.scrollLeft -= 250; // kitna slide karna hai
+    trackRef.current.scrollLeft -= 260; // kitna slide karna hai
 
     if(newIndex == 0)
     {
@@ -34,7 +53,7 @@ const App = () => {
     const newIndex = currentIndex + 1;
     setCurrentIndex(newIndex);
     setleftarrow(true);
-    trackRef.current.scrollLeft += 250;
+    trackRef.current.scrollLeft += 260;
 
     if(newIndex == lastIndex)
     {
@@ -96,7 +115,11 @@ const App = () => {
         </audio> 
         
 
-        <div className='hsthg'> <p> #AAstreaming_Forever </p> 
+        <div className='hsthg'> 
+          
+          
+          <p> #AAstreaming_forever </p> 
+          
 
         
 
@@ -132,29 +155,25 @@ const App = () => {
                   <img src={Our_Pic} alt="" />
 
                   </div>
-
-
-              <p> hello, this is our website... </p>
-
-
-
-
-
               </div>
 
 
             </section>
+            
+            <img className='linebreak' src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-5-golden-stars-and-straight-lines-image_1263119.jpg" alt="" />
 
             <section id='story'>
               <div className='story_con'>
-                <span> <img src="" alt="Our Pic" height={400} width={400} /> </span>
+
+                <h1> Our Story </h1>
+                <span> <img src={Haldi} alt="Our Pic" height={400} width={400} /> </span>
                 <span> 
                   <p> Amidst all the chaos and hustle, my heart found its forever 💕 </p>
 
                      <p> Before we fell in love, we fell into endless brainstorming sessions, case studies, and problem-solving marathons. Somewhere between product roadmaps and late-night debates, we discovered the best idea we’d ever co-create — US❣️ </p>
 
-                     <p> We are getting married on December 2nd, 2025!
-                      So block your calendars and get ready for a day full of love, laughter, and dance floors on fire. 💃🕺</p>
+                     <p> We are getting married on December 2nd, 2025! </p>
+                     <p> So block your calendars and get ready for a day full of love, laughter, and dance floors on fire. 💃🕺</p>
 
 
                       <p> #AAstreaming_forever </p>
@@ -162,6 +181,8 @@ const App = () => {
               </div>
 
             </section>
+
+            <img className='linebreak' src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-5-golden-stars-and-straight-lines-image_1263119.jpg" alt="" />
 
             <section id='events'>
 
@@ -181,6 +202,8 @@ const App = () => {
               </div>
 
             </section>
+
+            <img className='linebreak' src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-5-golden-stars-and-straight-lines-image_1263119.jpg" alt="" />
 
             <section id='gallery'>
 
@@ -218,6 +241,8 @@ const App = () => {
 
             </section>
 
+            <img className='linebreak' src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-5-golden-stars-and-straight-lines-image_1263119.jpg" alt="" />
+
             <section id='rsvp'>
 
               <div className='rsvp_con'>
@@ -233,14 +258,14 @@ const App = () => {
                 <span className='rsvp_span'> 
 
                 <label htmlFor="n1"> Full Name: </label>
-                <input type="text" name="full_name" id="fullName" placeholder='Enter your full name' /> 
+                <input type="text" name="full_name" id="fullName" placeholder='Enter your full name' required/> 
 
                 </span>
 
                 <span className='rsvp_span'>
 
                 <label htmlFor="n2"> E-mail: </label>
-                <input type="email" placeholder='Enter your e-mail' />
+                <input type="email" placeholder='Enter your e-mail' required/>
 
                 </span>
 
@@ -248,28 +273,38 @@ const App = () => {
 
                   <label htmlFor="n3"> Will you attend? </label>
                   
-                  <input type="radio" name="choice" id="option1"/> <label htmlFor="option1"> Yes </label>
+                  <input type="radio" name="choice" id="option1"/> <label htmlFor="option1" required> Yes </label>
                   <input type="radio" name="choice" id="option2"/> <label htmlFor="option2"> No </label> 
                 </span>
 
                 <span className='rsvp_span'>
 
-                  <label htmlFor="n4"> Number of Guests </label>
-                  <input type="text" name="guests" id="guests" placeholder='Enter number of Guests'/>
+                  <label htmlFor="n4"> Number of Guests: </label>
+                  <input type="text" name="guests" id="guests" placeholder='Enter number of Guests' required="yes"/>
 
 
                 </span>
 
+                <span className='rsvp_span'>
+
+                  <label htmlFor="n5"> Any Message for us?  </label>
+                  <textarea name="message" id="message" cols="30" rows="10" maxLength={1000} placeholder='Your Message'></textarea>
+                </span>
+
                 <div className='rsvp_btn1'>
 
-                <button className='rsvp_btn'> RSVP Now </button>
+                <button className='rsvp_btn' onClick={Submit}> RSVP Now </button>
 
                 </div>
                 
 
               </div>
 
+
+
             </section>
+
+            <img className='linebreak' src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-5-golden-stars-and-straight-lines-image_1263119.jpg" alt="" />
 
             <section>
 
